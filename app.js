@@ -4,6 +4,8 @@ import axios from "axios";
 const port = 3000;
 const app = express();
 
+app.use(express.static("public"));
+
 const baseURL = "https://v2.jokeapi.dev";
 const categories = ["Programming", "Christmas"];
 const params = [
