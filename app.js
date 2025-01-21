@@ -10,12 +10,25 @@ const baseURL = "https://v2.jokeapi.dev";
 const categories = ["Programming", "Christmas"];
 const params = [
     "blacklistFlags=nsfw,religious,racist,sexist,explicit",
-    "idRange=0-100"
+    "idRange=0-318"
 ];
 
+const type="twopart";
+
 app.get("/",async (req,res) =>{
-    const result = await axios.get (`${baseURL}/joke/${categories.join(",")}?${params.join("&")}`)
+    const url = `${baseURL}/joke/${categories.join(",")}?${params.join("&")}&type=${type}`
+    const result = await axios.get (url)
+    console.log(url)
+
+    try{
     res.render("index.ejs", { question: result.data.setup, answer: result.data.delivery})
+    console.log(result.data)
+    }
+
+    catch(error){
+    res.render("index.ejs", { question: error.message , answer: error.causedBy})
+    }
+
 })
 
 app.listen(port,() =>{

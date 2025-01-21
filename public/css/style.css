@@ -1,7 +1,16 @@
 
-div.container {
-    display:flex;
-    flex-direction: row;
+body.container {
+    display: flex;
+    flex-direction: column;
     align-content: center;
-    background-color: lightblue;
+    text-align: center;
+    justify-content: center;
+    background-color: #F5F5F5	;
+    height: 100vh;
+    gap:1em;
+}
+
+div.container {
+    border-radius: 16px;
+    background: radial-gradient(79.69% 102.24% at 100% 100.11%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(89.7% 115.09% at 3.43% 2.75%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0)), #764ABC;
 }
